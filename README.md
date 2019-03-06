@@ -1,3 +1,8 @@
 # hello-world
-hello, myself. 
-i want to be happy everyday.
+Hello, there you here~ 
+
+This is a little repository that i used to save some code.
+
+Most of them should be found at [LeetCode](www.leetcode.com)
+
+Have a good life~
