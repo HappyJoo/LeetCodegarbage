@@ -1,6 +1,7 @@
 #-*- coding:utf-8 -*-
 #this is code by python, not python3
 #2019.3.7   I write this for two hours......
+#homework for 6.00.1x week 2 lecture 3 problem 9
 l = 0
 r = 99
 mid = 50
