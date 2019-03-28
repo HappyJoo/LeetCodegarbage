@@ -24,11 +24,9 @@ class Solution:
          Nums2 is the second one that you should put into nums1.
          And every time I say last one means the one behind zeroes.
         """
-        # The last number exclude zeroes.
-        # Which is also the biggest one.
-        index_nums1 = m - 1 
-        index_nums2 = n - 1 
-        index_input = m + n - 1 # The last index of nums1
+        index_nums1 = m - 1 # The last number exclude zeroes.
+        index_nums2 = n - 1 # Which is also the biggest one.
+        index_input = m + n - 1 # The truly last number of nums1
         while index_nums1 >= 0 and index_nums2 >= 0:
             if nums1[index_nums1] > nums2[index_nums2]:
                 """ Imaging u put the last non-zeroes of nums1 into its end"""
