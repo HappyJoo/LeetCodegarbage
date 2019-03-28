@@ -48,3 +48,17 @@ class Solution:
             nums1[index_input] = nums2[index_nums2]
             index_input -= 1
             index_nums2 -= 1
+
+
+        # Solution3 
+        # I think it's maybe prettier than Solution1, but I just don't understand it yet.
+        for i in range(n):
+            t = m
+            for j in range(m-1, -1, -1):
+                if nums2[i] < nums1[j]:
+                    nums1[j+1] = nums1[j]
+                    t = j
+                else:
+                    break
+            m += 1
+            nums1[t] = nums2[i]
