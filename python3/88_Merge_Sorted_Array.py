@@ -8,6 +8,7 @@ class Solution:
         """
         Do not return anything, modify nums1 in-place instead.
         """
+        # Solution 1
         index_nums2 = 0
         for i in range(len(nums1)):
             if index_nums2 == len(nums2): # index cannot bigger than len(nums2)
@@ -16,6 +17,7 @@ class Solution:
                 nums1[i] = nums2[index_nums2]
                 index_nums2 += 1
         nums1.sort()
+
 
         """ Solution 2
          Imaging two list, nums1 is the one with a lot of zeroes.
@@ -48,6 +50,19 @@ class Solution:
             nums1[index_input] = nums2[index_nums2]
             index_input -= 1
             index_nums2 -= 1
+
+        # The same as Solution 2 but much pretty.
+        while m > 0 and n > 0:
+            if nums1[m - 1] > nums2[n - 1]:
+                nums1[m + n - 1] = nums1[m - 1]
+                m -= 1 
+            else: 
+                nums1[m + n - 1] = nums2[n - 1]
+                n -= 1
+
+        while n > 0:
+            nums1[m + n - 1] = nums2[n - 1]
+            n -= 1
 
 
         # Solution3 
