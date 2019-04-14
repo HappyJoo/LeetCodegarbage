@@ -15,3 +15,14 @@ class Solution:
             else:
                 x1 += 1
         return res
+
+    
+        # Solution 2
+        import collections
+        res = []
+        x = collections.Counter(nums2) # or nums1, whatever.
+        for n in nums1:
+            if n in x and x[n] > 0: # it's True even if it's 0
+                res.append(n)
+                x[n] -= 1
+        return res
