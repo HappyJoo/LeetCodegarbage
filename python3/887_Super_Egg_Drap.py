@@ -1,4 +1,5 @@
 # https://leetcode.com/articles/super-egg-drop/
+# https://github.com/Shellbye/Shellbye.github.io/issues/42
 # This one is really hard, i may come back later...
 
 class Solution(object):
