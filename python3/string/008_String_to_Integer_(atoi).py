@@ -37,12 +37,12 @@ class Solution:
         pattern = r"[\s]*[+-]?[\d]+"
         match = re.match(pattern, str)
         if match:
-            res = int(match.group(0))
+            res = int(match.group(0))  # The first one
             if res > 2 ** 31 - 1:  # Or 2147483648
                 return 2 ** 31 -1  
             if res < - 2 ** 31:
                 return - 2 ** 31
-        else:
+        else:  
             return 0
         return res 
         

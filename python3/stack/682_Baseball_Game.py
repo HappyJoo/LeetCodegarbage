@@ -38,7 +38,7 @@ class Solution:
         #     elif e == 'C':
         #         num = int(stack[0])
         #         res -= num
-        #         stack.remove(str(num))
+        #         stack.remove(str(num)) 
         #     else:
         #         res += int(e)
         #         stack = [e] + stack
