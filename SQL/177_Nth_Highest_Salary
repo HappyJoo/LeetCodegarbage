@@ -1,0 +1,24 @@
+# Solution 1 uses two SELECT
+CREATE FUNCTION getNthHighestSalary(N INT) RETURNS INT
+BEGIN
+  RETURN (
+    select distinct t1.Salary
+    from Employee t1
+    where N = (
+        select count(distinct t2.Salary)
+        from Employee t2
+        where t2.Salary >= t1.Salary)
+  );
+END
+
+# Solution 2 use DECLARE
+CREATE FUNCTION getNthHighestSalary(N INT) RETURNS INT
+BEGIN
+    DECLARE c INT;
+    SET c=N-1;  # use N would be error, don't know why.
+    RETURN (
+        # Write your MySQL query statement below.
+        SELECT DISTINCT Salary getNthHighestSalary FROM Employee ORDER BY Salary DESC
+        LIMIT 1 OFFSET c
+        );
+END
