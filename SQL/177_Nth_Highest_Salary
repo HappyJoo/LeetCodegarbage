@@ -14,11 +14,10 @@ END
 # Solution 2 use DECLARE
 CREATE FUNCTION getNthHighestSalary(N INT) RETURNS INT
 BEGIN
-    DECLARE c INT;
-    SET c=N-1;  # use N would be error, don't know why.
+    SET N = N - 1;  # use N would be error, don't know why.
     RETURN (
         # Write your MySQL query statement below.
         SELECT DISTINCT Salary getNthHighestSalary FROM Employee ORDER BY Salary DESC
-        LIMIT 1 OFFSET c
+        LIMIT 1 OFFSET N
         );
 END
