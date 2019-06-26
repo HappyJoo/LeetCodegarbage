@@ -1,0 +1,46 @@
+/* Write your T-SQL query statement below */
+-- Solution 1
+select 
+    d.name Department, 
+    e.name Employee, 
+    e.salary
+from 
+    department d
+        join 
+    employee e on d.id = e.departmentid
+and salary >= 
+    (   select 
+            max(salary) 
+        from 
+            employee 
+        where departmentid=d.id
+    )
+
+-- Why can i not use one select instead of two?
+
+
+-- Solution 2
+-- SELECT d.Name Department, e.Name Employee, e.Salary Salary
+-- FROM ( SELECT MAX(Salary) Salary, DepartmentId FROM Employee GROUP BY DepartmentId ) s
+-- JOIN Employee e ON e.DepartmentId = s.DepartmentId AND e.Salary = s.Salary
+-- JOIN Department d ON d.Id = e.DepartmentId
+
+
+# Write your MySQL query statement below
+SELECT
+    Department.name AS 'Department',
+    Employee.name AS 'Employee',
+    Salary
+FROM
+    Employee
+        JOIN
+    Department ON Employee.DepartmentId = Department.Id
+WHERE
+    (Employee.DepartmentId , Salary) IN
+    (   SELECT
+            DepartmentId, MAX(Salary)
+        FROM
+            Employee
+        GROUP BY DepartmentId
+	)
+;
