@@ -24,7 +24,7 @@ class Solution:
         a = strs[0]
         for i in range(1, len(strs)):
             while strs[i].find(a) != 0:
-                a = a[0:len(a)-1]
+                a = a[:len(a)-1]
         return a
 
 # Solution 4 compare the first and last one after sorting.
