@@ -33,11 +33,9 @@ class Solution:
         if not s:
             return ""
         s.sort()
-        a = s[0]
-        b = s[-1]
-        res = ""
+        a, b, res = s[0], s[-1], ''
         for i in range(len(a)):
-            if i < len(b) and a[i] == b[i]:
+            if a[i] == b[i]:
                 res += a[i]
             else:
                 break
