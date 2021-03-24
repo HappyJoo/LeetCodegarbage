@@ -1,5 +1,7 @@
+// https://leetcode-cn.com/problems/sort-an-array/
 // Bubble sort
 // time pass, but should be correct
+// time pass is because Bubble sort require two more steps then Insertion and Selection
 // Reference: https://leetcode-cn.com/problems/sort-an-array/solution/fu-xi-ji-chu-pai-xu-suan-fa-java-by-liweiwei1419/
 // TIME： O(N2)
 // SPACE: O(1)
@@ -37,6 +39,22 @@ func sortArray(nums []int) []int {
 			}
 		}
 		nums[j+1] = temp
+	}
+	return nums
+}
+
+// Selection sort
+// TIME： O(N2)
+// SPACE: O(1)
+func sortArray(nums []int) []int {
+	for i := 0; i < len(nums); i++ {
+		tempIndex := i
+		for j := i + 1; j < len(nums); j++ {
+			if nums[j] < nums[tempIndex] {
+				tempIndex = j // always store the smallest number index
+			}
+		}
+		nums[i], nums[tempIndex] = nums[tempIndex], nums[i]
 	}
 	return nums
 }
