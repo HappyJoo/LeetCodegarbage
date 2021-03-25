@@ -62,3 +62,36 @@ func sortArray(nums []int) []int {
 	}
 	return nums
 }
+
+// Merge sort
+// TIME： O(Nlog(N))
+// SPACE: O(N)
+func sortArray(nums []int) []int {
+	n := len(nums)
+	if n < 2 {
+		return nums
+	}
+	i := n / 2
+
+	left := sortArray(nums[:i])
+	right := sortArray(nums[i:])
+	return merge(left, right)
+}
+
+func merge(l, r []int) []int {
+	i, j := 0, 0
+	m, n := len(l), len(r)
+	var res []int
+	for i < m && j < n {
+		if l[i] < r[j] {
+			res = append(res, l[i])
+			i++
+		} else {
+			res = append(res, r[j])
+			j++
+		}
+	}
+	res = append(res, l[i:]...)
+	res = append(res, r[j:]...)
+	return res
+}
