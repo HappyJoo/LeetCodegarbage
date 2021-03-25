@@ -7,17 +7,21 @@
 // SPACE: O(1)
 
 func sortArray(nums []int) []int {
+	n := len(nums)
+	if n == 0 {
+		return nums
+	}
 
-	for i := 0; i < len(nums)-1; i++ {
-		t := true
-		for j := i + 1; j < len(nums); j++ {
-			if nums[i] > nums[j] {
-				nums[i], nums[j] = nums[j], nums[i]
-				t = false
+	for i := 0; i < n; i++ {
+		flag := true
+		for j := 0; j < n-i-1; j++ {
+			if nums[j] > nums[j+1] {
+				nums[j], nums[j+1] = nums[j+1], nums[j]
+				flag = false
 			}
 		}
-		if t == true {
-			break
+		if flag {
+			return nums
 		}
 	}
 	return nums
