@@ -51,7 +51,7 @@ func sortArray(nums []int) []int {
 // TIME： O(N2)
 // SPACE: O(1)
 func sortArray(nums []int) []int {
-	for i := 0; i < len(nums); i++ {
+	for i := 0; i < len(nums)-1; i++ {
 		tempIndex := i
 		for j := i + 1; j < len(nums); j++ {
 			if nums[j] < nums[tempIndex] {
