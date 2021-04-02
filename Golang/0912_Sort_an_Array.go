@@ -95,3 +95,36 @@ func merge(l, r []int) []int {
 	res = append(res, r[j:]...)
 	return res
 }
+
+// Quick sort
+// TIME： O(Nlog(N))
+// SPACE: O(1)
+func sortArray(nums []int) []int {
+    quickSort(nums, 0, len(nums) - 1)
+    return nums
+}
+
+func quickSort(nums []int, l, r int) {
+    if l >= r {
+        return
+    }
+
+    mid := partition(nums, l, r)
+    quickSort(nums, l, mid - 1)
+    quickSort(nums, mid + 1, r)
+
+}
+
+func partition(nums []int, l, r int) int {
+    pivot := nums[r]
+    i := l - 1
+    for j := l; j < r; j++ {
+        if nums[j] < pivot {
+            i++
+            nums[i], nums[j] = nums[j], nums[i]
+        }
+    }
+    i++
+    nums[i], nums[r] = nums[r], nums[i]
+    return i
+}
